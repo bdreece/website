@@ -1,5 +1,9 @@
 {
-  "name": "@example/minimal",
+  "name": "@bdreece/website",
+  "author": {
+    "name": "Brian Reece",
+    "url": "https://github.com/bdreece"
+  },
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -12,5 +16,8 @@
   },
   "dependencies": {
     "astro": "^1.6.12"
+  },
+  "devDependencies": {
+    "sass": "^1.56.1"
   }
 }
