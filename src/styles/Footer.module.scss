@@ -1,0 +1,6 @@
+@use 'helpers' as *;
+
+.footer {
+  @include flex($justify: center);
+  padding-block: 1rem;
+}

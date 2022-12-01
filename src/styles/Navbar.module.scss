@@ -1,0 +1,22 @@
+@use 'helpers' as *;
+
+@mixin mobile-column {
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+.navbar {
+  @include flex($justify: space-between);
+  @include mobile-column;
+
+  ul {
+    @include flex($gap: 0.5rem);
+    @include mobile-column;
+    align-items: center;
+  }
+
+  li {
+    list-style-type: none;
+  }
+}

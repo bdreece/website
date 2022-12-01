@@ -1,0 +1,22 @@
+@use 'helpers' as *;
+
+:root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  margin: 0 1rem;
+  background-color: $base-500;
+  @include flex($direction: column);
+  height: 100vh;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+@import 'components';
