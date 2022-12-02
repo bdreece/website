@@ -1,0 +1,11 @@
+@use 'helpers' as *;
+
+.link {
+  text-decoration: none;
+  color: $base-100;
+  transition: 250ms;
+  &:hover {
+    text-decoration: underline;
+    color: $green-100;
+  }
+}
