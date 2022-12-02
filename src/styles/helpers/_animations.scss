@@ -1,0 +1,20 @@
+@use 'colors' as *;
+
+@mixin squish($transition: 0.25s, $hover: 1.1, $active: 0.9) {
+  transition: $transition;
+  &:hover {
+    scale: $hover;
+  }
+  &:active {
+    scale: $active;
+  }
+}
+
+@mixin highlight($transition: 0.25s, $color: $green-100) {
+  transition: $transition;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: $green-100;
+  }
+}

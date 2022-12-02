@@ -1,0 +1,11 @@
+@use 'helpers/colors' as *;
+
+.card {
+  margin-inline: 2rem;
+  padding: 1rem;
+  box-shadow: 4px 4px 1rem $base-300;
+
+  section {
+    padding: 1rem;
+  }
+}

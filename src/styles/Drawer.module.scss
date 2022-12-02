@@ -1,19 +1,8 @@
-@use 'helpers' as *;
-$drawer-width: min(100vw, max(40vw, 30ch));
+@use 'helpers/animations';
+@use 'helpers/colors' as *;
+@use 'helpers/fullscreen' as *;
 
-.burger {
-  position: relative;
-  overflow: none;
-  background-color: initial;
-  border: none;
-  transition: 0.3s;
-  &:hover {
-    scale: 1.1;
-  }
-  &:active {
-    scale: 0.9;
-  }
-}
+$drawer-width: min(100vw, max(40vw, 30ch));
 
 .drawer {
   position: absolute;
@@ -22,18 +11,28 @@ $drawer-width: min(100vw, max(40vw, 30ch));
   transition: 0.5s;
   top: 0;
   right: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 5;
   box-shadow: 0 0 1rem $base-400;
   width: $drawer-width;
 
   & > ul {
-    margin-top: 2rem;
+    margin: 2rem 1rem 0 0;
   }
+}
+
+.burger {
+  @include animations.squish;
+
+  position: relative;
+  overflow: none;
+  background-color: initial;
+  border: none;
 }
 
 .overlay {
   @include fullscreen;
+
   z-index: 2;
   background-color: $base-100;
   opacity: 0.1;

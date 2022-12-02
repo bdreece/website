@@ -19,7 +19,6 @@ const Drawer: FC<DrawerProps> = ({ links }) => {
       }
     : {
         width: 0,
-        right: 1,
       };
 
   const display = {
@@ -43,6 +42,7 @@ const Drawer: FC<DrawerProps> = ({ links }) => {
         <ul style={display}>
           {links?.map(link => (
             <NavLink
+              key={link.label}
               orientation='row'
               {...link}
             />

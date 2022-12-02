@@ -8,13 +8,31 @@
 }
 
 body {
-  margin: 0 1rem;
+  margin: 0 2rem;
   background-color: $base-500;
+  color: $base-100;
   @include flex($direction: column);
   height: 100vh;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 h1 {
+  @include mobile {
+    font-size: 2rem;
+  }
+
   font-weight: 700;
-  font-size: xx-large;
+  font-size: 3rem;
+}
+
+a {
+  color: inherit;
 }

@@ -25,7 +25,7 @@ $mediaBreakpoints: (
 }
 
 @mixin mobile {
-  @include screen-max('sm') {
+  @include screen-max('md') {
     @content;
   }
 }

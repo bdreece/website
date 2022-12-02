@@ -37,8 +37,8 @@ const NavLink: FC<NavLinkProps> = ({
             <img
               src={icon}
               alt='icon'
-              height={32}
-              width={32}
+              height={64}
+              width={64}
               style={img}
             />
             <div style={div}>{label}</div>

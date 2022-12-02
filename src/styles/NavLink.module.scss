@@ -1,22 +1,13 @@
-@use 'helpers' as *;
+@use 'helpers/animations';
+@use 'helpers/colors' as *;
+@use 'helpers/flex' as *;
 
 .navlink {
   @include flex;
-
-  &:hover {
-    scale: 1.1;
-  }
-  &:active {
-    scale: 0.9;
-  }
+  @include animations.squish;
 
   span {
     @include flex($justify: center);
-  }
-
-  &,
-  div {
-    transition: 0.25s;
   }
 
   &:hover {
@@ -28,6 +19,8 @@
 
   div {
     opacity: 0;
+    transition: 0.25s;
     transform: translateY(1em);
+    text-align: center;
   }
 }
