@@ -5,13 +5,19 @@ import styles from 'styles/Card.module.scss';
 
 export type CardProps = ChildrenProps & {
   title: string;
+  description?: string;
 };
 
-const Card: FC<CardProps> = ({ children, title }) => {
+const Card: FC<CardProps> = ({ children, title, description }) => {
   return (
     <article className={styles.card}>
       <h2>{title}</h2>
-      <section>{children}</section>
+      {description && (
+        <section>
+          <p>{description}</p>
+        </section>
+      )}
+      {children}
     </article>
   );
 };
