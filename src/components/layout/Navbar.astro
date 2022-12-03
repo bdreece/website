@@ -3,7 +3,7 @@ import type { NavLinkProps } from 'components/common';
 import { Drawer, Link, NavLink } from 'components/common';
 import styles from 'styles/Navbar.module.scss';
 
-const links: NavLinkProps[] = [
+const links: Omit<NavLinkProps, 'index'>[] = [
   { href: '/', label: 'Home', icon: '/icons/home.svg' },
   { href: '/about', label: 'About Me', icon: '/icons/pin.svg' },
   { href: '/blog', label: 'Blog', icon: '/icons/text.svg' },
@@ -17,10 +17,17 @@ const links: NavLinkProps[] = [
     <h1>bdreece.dev</h1>
   </Link>
   <ul>
-    {links.map(link => <NavLink {...link} />)}
+    {
+      links.map((link, i) => (
+        <NavLink
+          index={i}
+          {...link}
+        />
+      ))
+    }
   </ul>
   <Drawer
     client:media='(max-width: 768px)'
-    links={links}
+    links={links.map((link, index) => ({ index, ...link }))}
   />
 </nav>

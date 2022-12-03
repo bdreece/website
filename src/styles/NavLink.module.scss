@@ -5,6 +5,7 @@
 .navlink {
   @include flex;
   @include animations.squish;
+  @include animations.fade;
 
   span {
     @include flex($justify: center);

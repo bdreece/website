@@ -1,4 +1,5 @@
-import type { FC, CSSProperties } from 'react';
+import type { FC } from 'react';
+import type { InlineStyles } from 'types/styles';
 import type { LinkProps } from './Link';
 
 import Link from './Link';
@@ -7,26 +8,31 @@ import styles from 'styles/NavLink.module.scss';
 export type NavLinkProps = LinkProps & {
   label: string;
   icon: string;
+  index: number;
   orientation?: 'row' | 'column';
 };
 
 const NavLink: FC<NavLinkProps> = ({
   label,
   icon,
+  index,
   orientation = 'column',
   ...props
 }) => {
-  const span: CSSProperties = {
-    flexDirection: orientation,
-    justifyContent: orientation === 'row' ? 'space-around' : 'center',
-  };
-
-  const img: CSSProperties = {
-    marginInline: orientation === 'column' ? 'auto' : undefined,
-  };
-
-  const div: CSSProperties = {
-    marginBlock: orientation === 'row' ? 'auto' : undefined,
+  const inline: InlineStyles = {
+    li: {
+      animationDelay: `${(index + 1) * 50}ms`,
+    },
+    span: {
+      flexDirection: orientation,
+      justifyContent: orientation === 'row' ? 'space-around' : 'center',
+    },
+    img: {
+      marginInline: orientation === 'column' ? 'auto' : undefined,
+    },
+    div: {
+      marginBlock: orientation === 'row' ? 'auto' : undefined,
+    },
   };
 
   const navlink =
@@ -35,18 +41,21 @@ const NavLink: FC<NavLinkProps> = ({
       : `${styles.navlink} ${styles.navlinkAnimated}`;
 
   return (
-    <li className={navlink}>
+    <li
+      className={navlink}
+      style={inline.li}
+    >
       <Link {...props}>
         <>
-          <span style={span}>
+          <span style={inline.span}>
             <img
               src={icon}
               alt='icon'
               height={64}
               width={64}
-              style={img}
+              style={inline.img}
             />
-            <div style={div}>{label}</div>
+            <div style={inline.div}>{label}</div>
           </span>
         </>
       </Link>
