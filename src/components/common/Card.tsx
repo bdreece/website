@@ -13,7 +13,12 @@ const Card: FC<CardProps> = ({ children, title, description }) => {
     <article className={styles.card}>
       <section>
         <h2>{title}</h2>
-        {description && <i>{description}</i>}
+        {description && (
+          <>
+            <p>//</p>
+            <i>{description}</i>
+          </>
+        )}
       </section>
       {children}
     </article>

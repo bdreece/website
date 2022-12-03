@@ -14,7 +14,7 @@
   box-shadow: 4px 4px 1rem $base-300;
 
   & > section:first-child {
-    @include flex($gap: 2rem);
+    @include flex($gap: 1rem);
     align-items: center;
     margin-bottom: 2rem;
 
