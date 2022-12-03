@@ -26,9 +26,8 @@ export type Props = {
 };
 
 const { title, description } = Astro.props;
-let pageTitle = title ? `bdreece.dev - ${title}` : 'bdreece.dev';
-
-const { url } = Astro;
+const pageTitle = title ? `bdreece.dev - ${title}` : 'bdreece.dev';
+const { pathname } = Astro.url;
 ---
 
 <html lang='en'>
@@ -48,12 +47,12 @@ const { url } = Astro;
     />
     <OGMeta
       title={pageTitle}
-      url={url}
+      path={pathname}
       description={description}
     />
     <TwitterMeta
       title={pageTitle}
-      url={url}
+      path={pathname}
       description={description}
     />
     <meta

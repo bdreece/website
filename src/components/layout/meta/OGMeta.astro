@@ -17,8 +17,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 import type { MetaProps } from 'types/meta';
+
 export type Props = MetaProps;
-const { title, url, description } = Astro.props;
+
+const { title, path, description } = Astro.props;
+const concatPath = (value?: string) => value ? `https://bdreece.dev${path}` : 'https://bdreece.dev';
+const url = concatPath(path);
+const image = concatPath('/social.png');
+
+console.log(url);
 ---
 
 <meta
@@ -35,5 +42,5 @@ const { title, url, description } = Astro.props;
 />
 <meta
   property='og:image'
-  content={new URL('/social.png', url)}
+  content={image}
 />

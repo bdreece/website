@@ -17,13 +17,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 import type { MetaProps } from 'types/meta';
+
 export type Props = MetaProps;
-const { title, url, description } = Astro.props;
+
+const { title, path, description } = Astro.props;
+const concatPath = (value?: string) => value ? `https://bdreece.dev${path}` : 'https://bdreece.dev';
+const url = concatPath(path);
+const image = concatPath('/social.png');
 ---
 
 <meta
   name='twitter:card'
-  content={new URL('/social.png', url?.origin)}
+  content={image}
 />
 <meta
   property='twitter:domain'
@@ -43,5 +48,5 @@ const { title, url, description } = Astro.props;
 />
 <meta
   name='twitter:image'
-  content={new URL('/social.png', url?.origin)}
+  content={image}
 />

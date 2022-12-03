@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 export type MetaProps = {
-  title: string;
-  description?: string;
-  url?: URL;
+    title: string;
+    description?: string;
+    path?: string;
 };
