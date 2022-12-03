@@ -5,7 +5,7 @@
 $drawer-width: min(100vw, max(40vw, 30ch));
 
 .drawer {
-  position: absolute;
+  position: fixed;
   background-color: $base-600;
   opacity: 0;
   transition: 0.5s;

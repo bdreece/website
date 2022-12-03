@@ -10,7 +10,7 @@
 
   h1 {
     @include animations.shimmer(
-      $shimmer-color: $green-100,
+      $shimmer-color: $green-200,
       $transition: 5s,
       $delay: 5s
     );
