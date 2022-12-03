@@ -29,8 +29,13 @@ const NavLink: FC<NavLinkProps> = ({
     marginBlock: orientation === 'row' ? 'auto' : undefined,
   };
 
+  const navlink =
+    orientation === 'row'
+      ? styles.navlink
+      : `${styles.navlink} ${styles.navlinkAnimated}`;
+
   return (
-    <li className={styles.navlink}>
+    <li className={navlink}>
       <Link {...props}>
         <>
           <span style={span}>

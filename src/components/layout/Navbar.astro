@@ -19,7 +19,7 @@ const links: NavLinkProps[] = [
     {links.map(link => <NavLink {...link} />)}
   </ul>
   <Drawer
-    client:load
+    client:media='(max-width: 768px)'
     links={links}
   />
 </nav>
