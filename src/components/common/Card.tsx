@@ -11,12 +11,10 @@ export type CardProps = ChildrenProps & {
 const Card: FC<CardProps> = ({ children, title, description }) => {
   return (
     <article className={styles.card}>
-      <h2>{title}</h2>
-      {description && (
-        <section>
-          <p>{description}</p>
-        </section>
-      )}
+      <section>
+        <h2>{title}</h2>
+        {description && <i>{description}</i>}
+      </section>
       {children}
     </article>
   );

@@ -1,5 +1,11 @@
 @use 'helpers/animations';
+@use 'helpers/colors' as *;
 
 .link {
+  color: $green-100;
+  text-decoration: underline;
+}
+
+.link-animated {
   @include animations.highlight;
 }

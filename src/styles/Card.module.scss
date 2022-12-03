@@ -1,5 +1,6 @@
 @use 'helpers/animations';
 @use 'helpers/colors' as *;
+@use 'helpers/flex' as *;
 @use 'helpers/media' as *;
 
 .card {
@@ -12,7 +13,14 @@
   padding: 1rem;
   box-shadow: 4px 4px 1rem $base-300;
 
-  section {
-    padding: 1rem;
+  & > section:first-child {
+    @include flex($gap: 2rem);
+    align-items: center;
+    margin-bottom: 2rem;
+
+    h2,
+    i {
+      display: inline;
+    }
   }
 }

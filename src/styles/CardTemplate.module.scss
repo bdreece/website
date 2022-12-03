@@ -1,0 +1,23 @@
+@use 'helpers/animations';
+@use 'helpers/flex' as *;
+@use 'helpers/media' as *;
+
+.content {
+  @include animations.fade($delay: 0.25s);
+
+  padding-inline: 1rem;
+
+  p {
+    max-width: 60vw;
+  }
+
+  @include screen-min('lg') {
+    h3 {
+      text-align: center;
+    }
+
+    p {
+      margin-inline: auto;
+    }
+  }
+}

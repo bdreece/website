@@ -1,11 +1,30 @@
 ---
 layout: 'templates/CardTemplate.astro'
 title: 'Projects'
+description: "Some projects I've been sinking my free time into"
 ---
 
-Here are some of the projects I've been spending my free time on:
+import { ExternalLink } from 'components/common';
+export const components = { a: ExternalLink };
 
-- about
-- backend
-- center
-- data
+### [transient](https://github.com/bdreece/transient)
+
+A temporary audio file sharing and streaming service, written with Go and Vue.
+I am currently in the process of migrating this to AWS, so it is not currently
+live :(
+
+### [stamena](https://github.com/bdreece/stamena)
+
+An IoT solution for competitive plant care based on the LILYGO
+T-HiGrow ESP32 plant monitor, with a web portal made with Express.js
+and React.
+
+### [portfolio](https://github.com/bdreece/portfolio)
+
+An interactive portfolio demo styled like Windows 98. This one's still a work
+in progress.
+
+### [gollections](https://github.com/bdreece/gollections)
+
+A Go 1.18 library for generic data structures and iterators. Designed with
+minimal abstraction, lazy evaluation, and DX in mind.

@@ -3,7 +3,7 @@ import type { NavLinkProps } from './NavLink';
 
 import { useState } from 'react';
 
-import Burger from './Burger';
+import Burger from './icons/Burger';
 import NavLink from './NavLink';
 import styles from 'styles/Drawer.module.scss';
 

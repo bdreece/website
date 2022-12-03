@@ -4,7 +4,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
@@ -21,6 +21,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: 'Space Grotesk', cursive;
   margin: 0;
 }
 
@@ -33,6 +34,15 @@ h1 {
   font-size: 3rem;
 }
 
+p {
+  font-size: 1.1rem;
+}
+
 a {
   color: inherit;
+}
+
+pre,
+code {
+  font-family: 'Source Code Pro', monospace;
 }
