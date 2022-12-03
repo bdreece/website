@@ -24,6 +24,9 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "rollup": "^3.5.1",
     "sass": "^1.56.1"
   }
 }

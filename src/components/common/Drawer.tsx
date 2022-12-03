@@ -31,6 +31,7 @@ const Drawer: FC<DrawerProps> = ({ links }) => {
     <>
       <button
         className={styles.burger}
+        aria-label='Menu'
         onClick={toggle}
       >
         <Burger />
