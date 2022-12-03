@@ -50,7 +50,7 @@ const NavLink: FC<NavLinkProps> = ({
           <span style={inline.span}>
             <img
               src={icon}
-              alt='icon'
+              alt='&boxtimes;'
               height={64}
               width={64}
               style={inline.img}
