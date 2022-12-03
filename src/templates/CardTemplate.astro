@@ -1,0 +1,21 @@
+---
+import BaseTemplate from './BaseTemplate.astro';
+import { Card } from 'components/common';
+
+export type Props = {
+  frontmatter: {
+    title: string;
+    description: string;
+  };
+};
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseTemplate frontmatter={frontmatter}>
+  <Card {...frontmatter}>
+    <section>
+      <slot />
+    </section>
+  </Card>
+</BaseTemplate>
