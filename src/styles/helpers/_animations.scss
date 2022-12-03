@@ -19,6 +19,18 @@
   }
 }
 
+@function fade-translation($direction: 'none', $magnitude: 1rem) {
+  $translation-map: (
+    'up': translateY($magnitude),
+    'down': translateY(calc(0px - $magnitude)),
+    'left': translateX($magnitude),
+    'right': translateX(calc(0px - $magnitude)),
+    'none': translate(0, 0),
+  );
+
+  @return map-get($translation-map, $direction);
+}
+
 @mixin fade(
   $transition: 0.25s,
   $delay: 0s,
@@ -27,27 +39,11 @@
   $opacity: 0
 ) {
   opacity: $opacity;
-  @if $direction == 'up' {
-    transform: translateY($magnitude);
-  } @else if $direction == 'down' {
-    transform: translateY(calc(0px - $magnitude));
-  } @else if $direction == 'left' {
-    transform: translateX($magnitude);
-  } @else if $direction == 'right' {
-    transform: translateX(calc(0px - $magnitude));
-  }
+  transform: fade-translation($direction, $magnitude);
   @keyframes fade-animation {
     from {
       opacity: $opacity;
-      @if $direction == 'up' {
-        transform: translateY($magnitude);
-      } @else if $direction == 'down' {
-        transform: translateY(calc(0px - $magnitude));
-      } @else if $direction == 'left' {
-        transform: translateX($magnitude);
-      } @else if $direction == 'right' {
-        transform: translateX(calc(0px - $magnitude));
-      }
+      transform: fade-translation($direction, $magnitude);
     }
     to {
       opacity: 1;
