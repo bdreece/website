@@ -1,0 +1,22 @@
+---
+import type { MetaProps } from 'types/meta';
+export type Props = MetaProps;
+const { title, url, description } = Astro.props;
+---
+
+<meta
+  property='og:url'
+  content={url}
+/>
+<meta
+  property='og:title'
+  content={title}
+/>
+<meta
+  property='og:description'
+  content={description}
+/>
+<meta
+  property='og:image'
+  content={new URL('/social.png', url)}
+/>

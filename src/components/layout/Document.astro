@@ -1,4 +1,6 @@
 ---
+import OGMeta from './meta/OGMeta.astro';
+import TwitterMeta from './meta/TwitterMeta.astro';
 import '../../styles/index.scss';
 
 export type Props = {
@@ -8,23 +10,13 @@ export type Props = {
 
 const { title, description } = Astro.props;
 let pageTitle = title ? `bdreece.dev - ${title}` : 'bdreece.dev';
+
+const { url } = Astro;
 ---
 
 <html lang='en'>
   <head>
     <meta charset='utf-8' />
-    <meta
-      property='og:title'
-      content={pageTitle}
-    />
-    <meta
-      property='og:description'
-      content={description}
-    />
-    <meta
-      property='og:image'
-      content='/social.png'
-    />
     <link
       rel='icon'
       href='/favicon.ico'
@@ -32,6 +24,16 @@ let pageTitle = title ? `bdreece.dev - ${title}` : 'bdreece.dev';
     <meta
       name='viewport'
       content='width=device-width'
+    />
+    <OGMeta
+      title={pageTitle}
+      url={url}
+      description={description}
+    />
+    <TwitterMeta
+      title={pageTitle}
+      url={url}
+      description={description}
     />
     <meta
       name='generator'
