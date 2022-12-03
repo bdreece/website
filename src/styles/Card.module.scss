@@ -1,6 +1,8 @@
+@use 'helpers/animations';
 @use 'helpers/colors' as *;
 
 .card {
+  @include animations.fade($direction: 'up');
   margin-inline: 2rem;
   padding: 1rem;
   box-shadow: 4px 4px 1rem $base-300;

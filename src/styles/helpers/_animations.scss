@@ -18,3 +18,81 @@
     color: $green-100;
   }
 }
+
+@mixin fade(
+  $transition: 0.25s,
+  $delay: 0s,
+  $direction: 'none',
+  $magnitude: 1rem,
+  $opacity: 0
+) {
+  opacity: $opacity;
+  @if $direction == 'up' {
+    transform: translateY($magnitude);
+  } @else if $direction == 'down' {
+    transform: translateY(calc(0px - $magnitude));
+  } @else if $direction == 'left' {
+    transform: translateX($magnitude);
+  } @else if $direction == 'right' {
+    transform: translateX(calc(0px - $magnitude));
+  }
+  @keyframes fade-animation {
+    from {
+      opacity: $opacity;
+      @if $direction == 'up' {
+        transform: translateY($magnitude);
+      } @else if $direction == 'down' {
+        transform: translateY(calc(0px - $magnitude));
+      } @else if $direction == 'left' {
+        transform: translateX($magnitude);
+      } @else if $direction == 'right' {
+        transform: translateX(calc(0px - $magnitude));
+      }
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  animation-name: fade-animation;
+  animation-timing-function: ease-in;
+  animation-delay: $delay;
+  animation-duration: $transition;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@mixin shimmer(
+  $transition: 2s,
+  $delay: 0s,
+  $base-color: $base-100,
+  $shimmer-color: $green-500
+) {
+  color: #{$base-color}01;
+  background: linear-gradient(
+    115deg,
+    $base-color 0 43%,
+    $shimmer-color 49% 51%,
+    $base-color 57% 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 400% 100%;
+  background-clip: text;
+
+  @keyframes shimmer-animation {
+    from {
+      background-position: top left;
+    }
+    from {
+      background-position: top right;
+    }
+  }
+
+  animation-name: shimmer-animation;
+  animation-timing-function: ease-in-out;
+  animation-delay: $delay;
+  animation-duration: $transition;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}

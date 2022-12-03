@@ -1,3 +1,4 @@
+@use 'helpers/animations';
 @use 'helpers/flex' as *;
 @use 'helpers/colors' as *;
 @use 'helpers/media' as *;
@@ -6,6 +7,19 @@
   @include flex($justify: space-between);
 
   align-items: center;
+
+  h1 {
+    @include animations.shimmer(
+      $shimmer-color: $green-100,
+      $transition: 5s,
+      $delay: 5s
+    );
+
+    &:hover {
+      animation: none;
+      color: inherit;
+    }
+  }
 
   & button {
     @include mobile {

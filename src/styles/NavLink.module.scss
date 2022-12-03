@@ -10,6 +10,12 @@
     @include flex($justify: center);
   }
 
+  div {
+    text-align: center;
+  }
+}
+
+.navlink-animated {
   &:hover {
     div {
       opacity: 1;
@@ -21,6 +27,5 @@
     opacity: 0;
     transition: 0.25s;
     transform: translateY(1em);
-    text-align: center;
   }
 }
