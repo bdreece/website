@@ -3,18 +3,30 @@ import '../../styles/index.scss';
 
 export type Props = {
   title?: string;
+  description?: string;
 };
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang='en'>
   <head>
     <meta charset='utf-8' />
+    <meta
+      property='og:title'
+      content={title}
+    />
+    <meta
+      property='og:description'
+      content={description}
+    />
+    <meta
+      property='og:image'
+      content='/apple-touch-icon.png'
+    />
     <link
       rel='icon'
-      type='image/svg+xml'
-      href='/favicon.svg'
+      href='/favicon.ico'
     />
     <meta
       name='viewport'

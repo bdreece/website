@@ -1,0 +1,24 @@
+@use 'helpers/flex' as *;
+@use 'helpers/media' as *;
+
+.about {
+  @include flex($justify: space-between, $gap: 2rem);
+  @include mobile {
+    flex-direction: column;
+    img {
+      margin-inline: auto;
+    }
+  }
+
+  img {
+    width: min(256px, max(128px, 60%));
+    height: min(256px, max(128px, 60%));
+    border-radius: 50%;
+  }
+
+  p {
+    flex-basis: 0;
+    max-width: 60vw;
+    margin-inline: auto;
+  }
+}

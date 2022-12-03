@@ -14,7 +14,7 @@ const { frontmatter } = Astro.props;
 
 <BaseTemplate frontmatter={frontmatter}>
   <Card {...frontmatter}>
-    <section>
+    <section class='content'>
       <slot />
     </section>
   </Card>

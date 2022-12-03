@@ -1,12 +1,11 @@
 ---
-layout: 'templates/BaseTemplate.astro'
+layout: 'templates/CardTemplate.astro'
 title: 'Resume'
 ---
 
-My Resume
+import styles from 'styles/Resume.module.scss';
 
 <iframe
+  class={styles.resume}
   src='/resume.pdf'
-  width='600'
-  height='800'
 />

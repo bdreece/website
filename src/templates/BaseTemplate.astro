@@ -6,16 +6,15 @@ import styles from 'styles/Layout.module.scss';
 
 export type Props = {
   frontmatter: {
-    title: string;
+    title?: string;
+    description?: string;
   };
 };
 
-const {
-  frontmatter: { title },
-} = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
-<Document title={title}>
+<Document {...frontmatter}>
   <Navbar />
   <main class={styles.main}>
     <slot />

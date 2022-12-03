@@ -1,0 +1,31 @@
+@use 'helpers/animations';
+@use 'helpers/colors' as *;
+@use 'helpers/flex' as *;
+
+.hero {
+  & > h2 {
+    @include animations.fade($delay: 0.25s);
+
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  & > div {
+    @include flex(column);
+    @include animations.fade($delay: 0.5s);
+
+    align-items: center;
+    margin: 2rem 2rem 0;
+
+    p {
+      max-width: 60vw;
+      margin: 0 auto 2rem;
+    }
+
+    img {
+      width: 60vw;
+      border-radius: 16px;
+      box-shadow: 0 0 1rem $base-100;
+    }
+  }
+}

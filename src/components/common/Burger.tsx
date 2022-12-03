@@ -1,12 +1,11 @@
 import type { FC } from 'react';
 
 export type BurgerProps = {
-  width?: string;
-  height?: string;
-  hidden?: boolean;
+  width?: number;
+  height?: number;
 };
 
-const Burger: FC<BurgerProps> = ({ width = '5rem', height = '5rem' }) => (
+const Burger: FC<BurgerProps> = ({ width = 64, height = 64 }) => (
   <svg
     version='1.1'
     xmlns='http://www.w3.org/2000/svg'

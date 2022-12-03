@@ -6,7 +6,9 @@
 .navbar {
   @include flex($justify: space-between);
 
-  align-items: center;
+  & > a {
+    margin-block: 16px;
+  }
 
   h1 {
     @include animations.shimmer(
@@ -14,6 +16,11 @@
       $transition: 5s,
       $delay: 5s
     );
+
+    padding-top: 4px;
+    @include mobile {
+      padding: 0;
+    }
 
     &:hover {
       animation: none;
