@@ -21,11 +21,11 @@ import type { MetaProps } from 'types/meta';
 export type Props = MetaProps;
 
 const { title, path, description } = Astro.props;
-const concatPath = (value?: string) => value ? `https://bdreece.dev${path}` : 'https://bdreece.dev';
+const concatPath = (value?: string) => value !== undefined ? `https://bdreece.dev${value}` : 'https://bdreece.dev/';
 const url = concatPath(path);
 const image = concatPath('/social.png');
 
-console.log(url);
+console.log({ url, image });
 ---
 
 <meta
