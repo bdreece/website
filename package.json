@@ -4,8 +4,9 @@
     "name": "Brian Reece",
     "url": "https://github.com/bdreece"
   },
-  "type": "module",
   "version": "0.0.1",
+  "license": "AGPLv3",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "astro dev",
