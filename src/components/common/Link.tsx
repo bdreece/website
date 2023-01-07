@@ -21,7 +21,7 @@ import type { ChildrenProps } from 'types/children';
 import styles from 'styles/Link.module.scss';
 
 export type LinkProps = ChildrenProps &
-  HTMLProps<HTMLAnchorElement> & {
+  Omit<HTMLProps<HTMLAnchorElement>, 'ref'> & {
     animated?: boolean;
   };
 

@@ -19,7 +19,9 @@ import type { FC } from 'react';
 import type { InlineStyles } from 'types/styles';
 import type { LinkProps } from './Link';
 
-import Link from './Link';
+import { lazy, Suspense } from 'react';
+
+const Link = lazy(() => import('./Link'));
 import styles from 'styles/NavLink.module.scss';
 
 export type NavLinkProps = LinkProps & {
@@ -62,20 +64,22 @@ const NavLink: FC<NavLinkProps> = ({
       className={navlink}
       style={inline.li}
     >
-      <Link {...props}>
-        <>
-          <span style={inline.span}>
-            <img
-              src={icon}
-              alt='&otimes;'
-              height={64}
-              width={64}
-              style={inline.img}
-            />
-            <div style={inline.div}>{label}</div>
-          </span>
-        </>
-      </Link>
+      <Suspense>
+        <Link {...props}>
+          <>
+            <span style={inline.span}>
+              <img
+                src={icon}
+                alt='&otimes;'
+                height={64}
+                width={64}
+                style={inline.img}
+              />
+              <div style={inline.div}>{label}</div>
+            </span>
+          </>
+        </Link>
+      </Suspense>
     </li>
   );
 };

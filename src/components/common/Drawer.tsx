@@ -15,13 +15,14 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-import type { FC } from 'react';
+import type { FC, CSSProperties } from 'react';
+import type { InlineStyles } from 'types/styles';
 import type { NavLinkProps } from './NavLink';
 
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 
-import Burger from './icons/Burger';
-import NavLink from './NavLink';
+const Burger = lazy(() => import('./icons/Burger'));
+const NavLink = lazy(() => import('./NavLink'));
 import styles from 'styles/Drawer.module.scss';
 
 export type DrawerProps = {
@@ -30,16 +31,17 @@ export type DrawerProps = {
 
 const Drawer: FC<DrawerProps> = ({ links }) => {
   const [opened, setOpened] = useState(false);
-  const aside = opened
-    ? {
-        opacity: 1,
-      }
-    : {
-        width: 0,
-      };
-
-  const display = {
-    display: opened ? undefined : 'none',
+  const inline: InlineStyles = {
+    aside: opened
+      ? {
+          opacity: 1,
+        }
+      : {
+          width: 0,
+        },
+    display: {
+      display: opened ? undefined : 'none',
+    },
   };
 
   const toggle = () => setOpened(opened => !opened);
@@ -51,25 +53,29 @@ const Drawer: FC<DrawerProps> = ({ links }) => {
         aria-label='Menu'
         onClick={toggle}
       >
-        <Burger />
+        <Suspense>
+          <Burger />
+        </Suspense>
       </button>
       <aside
         className={styles.drawer}
-        style={aside}
+        style={inline.aside}
       >
-        <ul style={display}>
-          {links?.map(link => (
-            <NavLink
-              key={link.label}
-              orientation='row'
-              {...link}
-            />
-          ))}
+        <ul style={inline.display}>
+          <Suspense>
+            {links?.map(link => (
+              <NavLink
+                key={link.label}
+                orientation='row'
+                {...link}
+              />
+            ))}
+          </Suspense>
         </ul>
       </aside>
       <div
         className={styles.overlay}
-        style={display}
+        style={inline.display}
         onClick={toggle}
       />
     </>
